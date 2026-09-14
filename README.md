@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Product List
+
+A small, polished product-catalog demo built with the **Next.js App Router**. It shows off server-side rendered data fetching, a streaming loading state, file-based routing, and client-side interactivity — all in one tiny storefront.
+
+![Product List screenshot](./public/screenshot.png)
+
+## Tech Stack
+
+- **Next.js 16** (App Router, Server Components)
+- **React 19**
+- **TypeScript**
+- **Tailwind CSS 4**
+- Package manager: **pnpm**
+
+## Features
+
+| Feature | Where it lives |
+| --- | --- |
+| Server-side data fetching with artificial latency | `app/page.tsx` (`getProducts`) |
+| Streaming loading UI while data is in flight | `app/loading.tsx` |
+| File-based routing (`/` and `/about`) | `app/page.tsx`, `app/about/page.tsx` |
+| Custom 404 page | `app/not-found.tsx` |
+| Client-side interactivity (favorite toggle) | `components/FavoriteButton.tsx` |
+| Server + client component composition | `components/ProductCard.tsx` |
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) — you'll see a skeleton loading state for ~1.5s, then the product list. Click **Favorite** (or **★ Favorited**) to see client-side state in action, and head to **About** for the routing demo.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Other Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm build   # optimized production build
+pnpm start   # serve the production build
+pnpm lint    # ESLint
+```
 
-## Learn More
+## About This Demo
 
-To learn more about Next.js, take a look at the following resources:
+This repo is a sandbox for testing the modern Next.js App Router. Each file is deliberately small and well-commented by its purpose, making it a useful reference for:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Thinking in **server vs. client components**
+- Adding **loading and not-found states** with zero config
+- Styling a clean, responsive UI with **Tailwind** (light + dark mode)
